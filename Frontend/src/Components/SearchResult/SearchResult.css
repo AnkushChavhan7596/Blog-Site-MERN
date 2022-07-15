@@ -1,0 +1,13 @@
+
+.search-result{
+    width: 850px;
+    height: 600px;
+    overflow-y: scroll;
+    position: absolute;
+    z-index: 5;
+    top: 80px;
+    padding: 10px 10px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px black;
+}

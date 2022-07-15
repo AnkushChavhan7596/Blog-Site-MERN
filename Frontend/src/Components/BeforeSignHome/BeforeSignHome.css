@@ -1,0 +1,24 @@
+
+.before-sing-home{
+    background-image: linear-gradient(to bottom right, rgb(118, 223, 255), rgb(255, 122, 244));
+    width: 100%;
+    height: 88vh;
+    margin-top: 10px;
+}
+
+.before-sign-home-heading_wrapper{
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.before-sign-heading{
+    font-size: 3rem;
+    font-weight: 700;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.19);
+   font-style:unset;
+   color: white;
+}

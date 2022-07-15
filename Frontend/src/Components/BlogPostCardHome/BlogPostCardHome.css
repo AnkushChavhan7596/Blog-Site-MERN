@@ -1,0 +1,138 @@
+
+.blog-post-card-home{
+    width: 800px;
+    min-height: 300px;
+    margin: 20px;
+    background-color: white;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.432);
+    border-radius: 10px;
+    padding: 10px 15px;
+    overflow: hidden;
+}
+
+a{
+    text-decoration: none;
+}
+
+.blog-post-home-image_wrapper{
+    width: 100%;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.blog-post-home-image_wrapper img{
+    width: 100%;
+    height: 95%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.post_home_title p{
+    font-weight: 600;
+    font-size: 22px;
+    margin: 10px 0;
+}
+
+.post_home_description p{
+    min-height: 15px;
+    max-height: 101px;
+    overflow: hidden;
+}
+
+.post_home_bottom_wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.post_home_bottom_wrapper .left{
+    display: flex;
+    align-items: center;
+}
+
+.post_home_bottom_wrapper .right{
+    display: flex;
+    align-items: center;
+}
+
+.post_home_bottom_wrapper .like{
+    margin-right: 15px;
+}
+
+.like_icon{
+  cursor: pointer;
+}
+
+.post_home_bottom_wrapper {
+    border: none;
+    background-color: none;
+}
+
+
+.post_home_bottom_wrapper .view_post_home{
+    display: block;
+    padding: 5px 20px;
+    background-color: rgb(0, 155, 207);
+    color: white;
+    font-weight: 600;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.303);
+    border-radius: 5px;
+}
+
+.post_icon_wrapper{
+    padding: 10px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.216);
+    border-radius: 50%;
+    margin-left: 10px;
+}
+
+.post_icon_wrapper a{
+    display: block;
+}
+
+ .post_icon{
+    border-radius: 50%;
+}
+
+.delete_post_icon_home{
+    color: red;
+}
+.like{
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center !important;
+    margin-right: 10px;
+}
+
+
+.liked{
+    color: red;
+}
+
+.like_count{
+    font-weight: 600;
+    padding: 0 10px;
+}
+.like_actual_icon{
+    padding-top: 15px;
+}
+
+a{
+    text-decoration: none !important;
+}
+
+i{
+    cursor: pointer;
+    transition: .2s ease;
+}
+
+i:hover{
+    transform: scale(1.1);
+}
+
+.red{
+    color: red;
+}
