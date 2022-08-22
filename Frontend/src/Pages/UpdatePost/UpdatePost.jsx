@@ -82,6 +82,28 @@ const UpdatePost = () => {
 
   // }, [])
 
+  const loadPost = async () =>{
+    try{
+       const res = await axios.get(`http://localhost:8000/api/posts/post/${id}`);
+
+       if(res.status === 200){
+          setTitle(res.data.post.title);
+          setDescription(res.data.post.description);
+          setCategory(res.data.post.category);
+       }
+       else{
+        console.log("Something wents wrong");
+       }
+    }
+    catch(error){
+      console.log(error.message);
+    }
+  }
+
+  useEffect(()=>{
+      loadPost();
+  },[])
+
   return (
     <div className="create_post_container">
       <form encType="multipart/form-data" className="createPostForm" onSubmit={handleFormSubmit}>
@@ -120,7 +142,7 @@ const UpdatePost = () => {
           <label htmlFor="#">Select post category : </label>
           <select
             name="cars"
-            // value={category}
+            value={category}
             onChange={(e) => {
               const selectedCategory = e.target.value;
               setCategory(selectedCategory);

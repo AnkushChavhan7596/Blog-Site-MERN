@@ -14,6 +14,7 @@ import { useUsersContext } from '../../hooks/useUsersContext';
 import SearchResult from '../../Components/SearchResult/SearchResult';
 import Overlay from '../../Components/Overlay/Overlay';
 import { useCommentsContext } from '../../hooks/useCommentsContext';
+import PageLoader from '../PageLoader/PageLoader';
 
 const Home = () => {
 
@@ -123,6 +124,7 @@ const Home = () => {
   },[])
 
   return (
+    
     <div className='home'>
 
       <div className="home_wrapper">
@@ -131,7 +133,7 @@ const Home = () => {
                   Cookies.get("jwt") && activeUser ? 
 
                   allPosts?.length === 0 ? <p className='posts_not_found'>No Posts of {cate} Category 😢</p>: 
-                  allPosts?.reverse().map((post)=>{
+                  allPosts?.map((post)=>{
                     return <BlogPostCardHome key={post._id} post={post} />
                   })
                    
@@ -160,6 +162,7 @@ const Home = () => {
       </div>
        
     </div>
+  
   )
 }
 

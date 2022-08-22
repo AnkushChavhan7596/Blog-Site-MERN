@@ -44,3 +44,10 @@
     margin-top: 40px;
     font-weight: 500;
 }
+
+.no_comment_txt{
+    font-size: 20px;
+    color: gray;
+    text-align: center;
+    margin: 10px 0;
+}

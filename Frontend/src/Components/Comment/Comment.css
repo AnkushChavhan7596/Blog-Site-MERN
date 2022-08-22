@@ -55,3 +55,15 @@
 .h1_cr{
     margin-left: auto;
 }
+
+.author_txt_txt{
+    font-weight: 600;
+    letter-spacing: 1px;
+    padding: 4px 10px;
+    font-size: 14px;
+    border-radius: 6px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.237);
+    background-color: rgba(0, 154, 157, 0.748);
+    color: rgb(255, 255, 255);
+    margin-left: 10px;
+}

@@ -145,9 +145,8 @@ const CreatePost = () => {
 
         <div className="post_btn_wrapper">
           <button onClick={handlePostingLoading}>
-            create blog
+          { sending ? <SendingLoader /> : "create blog" }
           </button>
-          { sending ? <SendingLoader /> : "" }
         </div>
       </form>
     </div>

@@ -11,6 +11,7 @@ import { usePostsContext } from "../../hooks/usePostsContext";
 import { useActiveUserContext } from "../../hooks/useActiveUserContext";
 
 import { format } from "timeago.js";
+import PageLoader from "../PageLoader/PageLoader";
 
 const Profile = () => {
   const { id } = useParams();
@@ -85,6 +86,10 @@ const Profile = () => {
   }, []);
 
   return (
+    <>
+    {
+    postAuthor ?
+   
     <div className="profile_user">
       <div className="profile_main_wrapper">
         <div className="top">
@@ -193,6 +198,11 @@ const Profile = () => {
         </div>
       </div>
     </div>
+
+    :
+    <PageLoader />
+            }
+    </>
   );
 };
 

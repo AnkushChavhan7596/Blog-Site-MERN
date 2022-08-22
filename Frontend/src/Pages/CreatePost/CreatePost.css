@@ -70,6 +70,7 @@
 }
 
 .post_btn_wrapper button{
+    width: 160px;
     padding: 7px 30px;
     font-size: 16px;
     background-color: none;

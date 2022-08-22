@@ -79,19 +79,21 @@ const Navbar = () => {
         <div className="menu-link">
           {activeUser ? (
             <>
-              <Link to="/">Home</Link>
+              <Link to="/" className='ml'>Home</Link>
               {/* <Link to="/categories">Categories</Link> */}
               {/* <Link to="/about">About</Link> */}
-              <Link to="/create-post">Create Post</Link>
-              <Link to="/" onClick={handleLogout}>
+              <Link to="/create-post" className='ml'>Create Post</Link>
+              <Link to="/" onClick={handleLogout} className='ml'>
                 Logout
               </Link>
-              <Link to={`/profile/${activeUser?._id}`}>Profile</Link>
+              <Link to={`/profile/${activeUser?._id}`} className='nav_profile_img'>
+                <img src={activeUser?.profileImage} alt="Profile" className="nav_profile_image" />
+              </Link>
             </>
           ) : (
             <>
-              <Link to="/login">Sign In</Link>
-              <Link to="/register">Sign Up</Link>
+              <Link to="/login" className='ml'>Sign In</Link>
+              <Link to="/register" className='ml'>Sign Up</Link>
             </>
           )}
         </div>

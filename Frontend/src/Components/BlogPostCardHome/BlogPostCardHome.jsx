@@ -75,15 +75,15 @@ const BlogPostCardHome = ({post}) => {
   return (
     <div className='blog-post-card-home'>
         <div className="blog-post-home-image_wrapper">
-            <img src={post.postImage} alt="post image" />
+            <img src={post?.postImage} alt="post image" />
         </div>
 
         <div className="post_home_title">
-            <p>{post.title}</p>
+            <p>{post?.title}</p>
         </div>
 
         <div className="post_home_description">
-            <p>{post.description}</p>
+            <p>{post?.description}</p>
         </div>
 
         <div className="post_home_bottom_wrapper">
@@ -129,14 +129,14 @@ const BlogPostCardHome = ({post}) => {
                     }
                     
                 </div>
-                <Link className='view_post_home' to={`/post/${post._id}`} >View Post</Link>
+                <Link className='view_post_home' to={`/post/${post?._id}`} >View Post</Link>
             </div>
             <div className="right">
                 {
-                    activeUser._id === post.authorId ? 
+                    activeUser._id === post?.authorId ? 
                     <>
-                        <p className="post_icon_wrapper"><Link to={`/update-post/${post._id}`}><EditIcon className='post_icon' /></Link></p>
-                        <p className="post_icon_wrapper" onClick={() => {handleDelete(post._id)}}><Link to="/"><DeleteIcon className='post_icon delete_post_icon_home'  /></Link></p>
+                        <p className="post_icon_wrapper"><Link to={`/update-post/${post?._id}`}><EditIcon className='post_icon' /></Link></p>
+                        <p className="post_icon_wrapper" onClick={() => {handleDelete(post?._id)}}><Link to="/"><DeleteIcon className='post_icon delete_post_icon_home'  /></Link></p>
                     </>
                     :
                     ""

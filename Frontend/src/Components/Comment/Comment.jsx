@@ -3,10 +3,11 @@ import React, {useState, useEffect} from 'react'
 import "./Comment.css"
 import DeleteIcon from '@mui/icons-material/Delete';
 import axios from 'axios';
+import { Link } from "react-router-dom";
 import { useCommentsContext } from '../../hooks/useCommentsContext';
 import { useActiveUserContext } from '../../hooks/useActiveUserContext';
 
-const Comment = ({comment}) => {
+const Comment = ({comment, post}) => {
 
   const {comments, dispatchComments} = useCommentsContext();
   const {activeUser} = useActiveUserContext();
@@ -58,13 +59,15 @@ const Comment = ({comment}) => {
   return (
     <div className='comment'>
       <div className="left">
-        <img src={user? user.profileImage : `https://social-media-ankush.herokuapp.com/public/Images/user (1).png`} alt="comment Img" />
+        <Link to={`/profile/${user?._id}`}>
+          <img src={user? user.profileImage : `https://social-media-ankush.herokuapp.com/public/Images/user (1).png`} alt="comment Img" />
+        </Link>
       </div>
 
       <div className="right">
         <div className="header_name_comment">
             <div className='h1_cl'>
-               <p>{user?.name}</p>
+               <p>{user?.name} {post?.authorId === comment.authorId ? <span className='author_txt_txt'>Author</span> : ""}</p>
             </div>
             <div className='h1_cr'>
               {
