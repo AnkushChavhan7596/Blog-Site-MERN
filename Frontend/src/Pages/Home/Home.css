@@ -54,10 +54,15 @@
     font-weight: 500;
     cursor: pointer;
     border-bottom: 1px solid rgba(70, 161, 194, 0.103);
+    background-color: rgba(128, 128, 128, 0.059);
+    margin-bottom: 2px;
+    transition: all .1s ease;
 }
 
 .categories_wrapper span:hover{
-    background-color: rgba(128, 128, 128, 0.129);
+    background-color: rgba(128, 128, 128, 0.238);
+    transform: scale(1.08);
+    margin-left: 4px;
 }
 
 .catogory_heading{

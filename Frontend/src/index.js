@@ -9,6 +9,8 @@ import { ActiveUserContextProvider } from './context/activeUserContext';
 import { UsersContextProvider } from './context/UserContext';
 import { SearchResultContextProvider } from './context/SearchResultContext';
 import { CommentsContextProvider } from './context/CommentContext';
+import store from './redux/store';
+import { Provider } from 'react-redux';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -18,7 +20,9 @@ root.render(
         <UsersContextProvider>
           <SearchResultContextProvider>
             <CommentsContextProvider>
+              <Provider store={store}>
                <App />
+              </Provider>
             </CommentsContextProvider>
           </SearchResultContextProvider>
         </UsersContextProvider>

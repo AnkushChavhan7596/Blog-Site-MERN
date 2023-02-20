@@ -15,6 +15,7 @@ import SearchResult from '../../Components/SearchResult/SearchResult';
 import Overlay from '../../Components/Overlay/Overlay';
 import { useCommentsContext } from '../../hooks/useCommentsContext';
 import PageLoader from '../PageLoader/PageLoader';
+import { SET_POSTS } from '../../redux/postsSlice';
 
 const Home = () => {
 
@@ -121,7 +122,7 @@ const Home = () => {
      fetchUsers();
      fetchComments();
 
-  },[])
+  },[dispatch])
 
   return (
     

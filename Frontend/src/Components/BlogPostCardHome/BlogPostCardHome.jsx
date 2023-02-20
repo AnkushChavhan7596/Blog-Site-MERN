@@ -27,6 +27,15 @@ const BlogPostCardHome = ({post}) => {
     const [nonLiked, setNonLiked] = useState("far fa-heart");
     const [likeStyle, setLikeStyle] = useState("far fa-heart");
 
+    // handle setting post id
+    const handleSettingId = async (currentPost_Id) =>{
+       try{
+
+       }catch(error){
+        console.log(error.message);
+       }
+    }
+
     // handle delete post
     const handleDelete = async (id) =>{
         console.log(id)
@@ -129,7 +138,7 @@ const BlogPostCardHome = ({post}) => {
                     }
                     
                 </div>
-                <Link className='view_post_home' to={`/post/${post?._id}`} >View Post</Link>
+                <Link className='view_post_home' to={`/post/${post?._id}`} onClick={() => handleSettingId(post?._id)}>View Post</Link>
             </div>
             <div className="right">
                 {

@@ -54,6 +54,7 @@
    padding : 3px;
    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.178);
    border : 2px solid rgb(194, 187, 187);
+   object-fit: cover;
 }
 
 .profile_main_wrapper .bottom{

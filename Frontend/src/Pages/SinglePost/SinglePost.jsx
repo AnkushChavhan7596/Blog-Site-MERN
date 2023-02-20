@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useLocation } from "react-router-dom";
 import { usePostsContext } from "../../hooks/usePostsContext";
 import "./SinglePost.css";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -11,14 +11,18 @@ import Comments from "../../Components/Comments/Comments";
 
 import { useUsersContext } from "../../hooks/useUsersContext";
 import { useActiveUserContext } from "../../hooks/useActiveUserContext";
+import { useSelector } from "react-redux";
 
 const SinglePost = () => {
-  const { posts, dispatch } = usePostsContext();
+  const { dispatch } = usePostsContext();
+  const posts = useSelector((state) => state.post.posts);
   const { users } = useUsersContext();
   const { activeUser } = useActiveUserContext();
-
-  const { id } = useParams();
-
+  
+  const {id} = useParams();
+  // const location = useLocation();
+  // const id = location.pathname.split("/")[2];
+  
   const [currentPost, setCurrentPost] = useState();
   const [postAuthor, setPostAuthor] = useState();
   const [likeCount, setLikeCount] = useState(0);
@@ -26,8 +30,12 @@ const SinglePost = () => {
   const [nonLiked, setNonLiked] = useState("far fa-heart");
   const [likeStyle, setLikeStyle] = useState("far fa-heart");
 
+  const currentBlogPost = useSelector((state) => state.post.currentPost);
+
+
   // handle delete post
   const handleDelete = async (id) => {
+
     console.log(id);
 
     try {
@@ -71,7 +79,7 @@ const SinglePost = () => {
 
     try {
       const res = await axios.post(`/api/posts/like-dislike/${postId}`, {
-        userId: activeUser._id,
+        userId: activeUser?._id,
       });
 
       if (res.status == 200) {
@@ -86,9 +94,11 @@ const SinglePost = () => {
   };
 
   useEffect(() => {
+
     // fetch current post
     const fetchCurrentPost = async () => {
       try {
+
         const res = await axios.get(`/api/posts/post/${id}`);
 
         if (res.status === 200) {
@@ -97,7 +107,7 @@ const SinglePost = () => {
           setLikeCount(res.data.post.likes.length);
 
           users?.map((user) => {
-            if (user._id === res.data.post.authorId) {
+            if (user?._id === res.data.post.authorId) {
               setPostAuthor(user);
             }
           });
@@ -110,7 +120,7 @@ const SinglePost = () => {
     };
 
     fetchCurrentPost();
-  }, []);
+  }, [id]);
 
   return (
     <>
@@ -147,12 +157,12 @@ const SinglePost = () => {
                 <p>{currentPost ? currentPost.title : ""}</p>
               </div>
 
-              {activeUser._id === currentPost?.authorId ? (
+              {activeUser?._id === currentPost?.authorId ? (
                 <div className="buttons_wrapper">
                   <p className="post_icon_wrapper">
                     <Link
                       to={`/update-post/${
-                        currentPost ? currentPost._id : null
+                        currentPost ? currentPost?._id : null
                       }`}
                     >
                       <EditIcon className="post_icon" />
@@ -161,7 +171,7 @@ const SinglePost = () => {
                   <p
                     className="post_icon_wrapper"
                     onClick={() => {
-                      handleDelete(currentPost ? currentPost._id : null);
+                      handleDelete(currentPost ? currentPost?._id : null);
                     }}
                   >
                     <Link to="/">

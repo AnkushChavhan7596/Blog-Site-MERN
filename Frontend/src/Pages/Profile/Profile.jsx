@@ -12,15 +12,20 @@ import { useActiveUserContext } from "../../hooks/useActiveUserContext";
 
 import { format } from "timeago.js";
 import PageLoader from "../PageLoader/PageLoader";
+import { useDispatch, useSelector } from "react-redux";
+import {CURRENT_POST} from "../../redux/postsSlice";
 
 const Profile = () => {
   const { id } = useParams();
-  const { posts, dispatch } = usePostsContext();
+  const { dispatch } = usePostsContext();
+  const postDispatch = useDispatch();
   const { activeUser } = useActiveUserContext();
   console.log(id);
   const { users } = useUsersContext();
   const [postAuthor, setPostAuthor] = useState();
   const [profileImage, setProfileImage] = useState();
+
+  const posts = useSelector((state)=> state.post.posts);
 
   // handle delete post
   const handleDelete = async (id) => {
@@ -66,6 +71,10 @@ const Profile = () => {
         Swal.fire("Oops", "Something wents wrong", "info");
       });
   };
+
+  const handleCurrentPost = (currentId) => {
+    postDispatch(CURRENT_POST(currentId)) 
+  }
 
   useEffect(() => {
     const fetchPostUser = async () => {
@@ -185,7 +194,7 @@ const Profile = () => {
                     ) : (
                       <div className="bottom">
                         <span>
-                          <Link to={`/post/${post?._id}`}>
+                          <Link to={`/post/${post?._id}`} onClick={() => handleCurrentPost(post._id)}>
                             <RemoveRedEyeIcon className="clr" />
                           </Link>
                         </span>
