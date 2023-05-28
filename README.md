@@ -1,0 +1,1 @@
+This is the blog application developed in MERN stack, In this application, users can post their blogs, can like the blogs, can comment on the blog , And I have mentioned the category filter so that users can find the blogs related to their choice.
